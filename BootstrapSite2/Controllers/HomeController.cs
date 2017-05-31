@@ -10,14 +10,7 @@ namespace BootstrapSite2.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title="My Consulting";
             return View();
         }
-
-        public ActionResult TestYourPage()
-        {
-            return View();
-        }
-
     }
 }

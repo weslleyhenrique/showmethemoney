@@ -28,17 +28,22 @@
     @* CSS CUSTOM *@
     <link href="~/css/site-custom.css" rel="stylesheet" />
 
+    <!-- jQuery -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+
 </head>
 
 <body>
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <nav id="mainNav" class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top"> </a>
+                    <div class="col-lg-offset-1 col-lg-4">
+                        <img src="~/img/logo.png" />
+                    </div>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -63,12 +68,14 @@
     </nav>
 
 
+  
+
+    
 
     @RenderBody()
 
 
-    <!-- jQuery -->
-    <script src="~/vendor/jquery/jquery.min.js"></script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- Plugin JavaScript -->
@@ -81,6 +88,6 @@
 
 
 
-    
+
 </body>
 </html>

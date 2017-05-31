@@ -6,12 +6,13 @@ using System.Web.Mvc;
 
 namespace BootstrapSite2.Controllers
 {
-
     [RoutePrefix("midiasocial")]
-    public class TesteMidiaController : Controller
+    public class MidiaController : Controller
     {
+        // GET: Midia
         [Route("faca-o-teste")]
-        public ActionResult Test()
+
+        public ActionResult teste()
         {
             return View();
         }
