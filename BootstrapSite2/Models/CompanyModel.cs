@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BootstrapSite2.Models
 {
-    public class Company
+    public class CompanyModel
     {
         public int companyId { get; set; }
         public string fullName { get; set; }
@@ -13,5 +13,6 @@ namespace BootstrapSite2.Models
         public string companyName { get; set; }
         public string companyType { get; set; }
         public string companySize { get; set; }
+        public string identityId { get; set; }
     }
 }

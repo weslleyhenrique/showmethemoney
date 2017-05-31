@@ -7,10 +7,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>@ViewBag.Title</title>
-
+    <link rel="shortcut icon" href="~/img/favicon.ico" type="image/x-icon" />
 
     <!-- Bootstrap Core CSS -->
-    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="~/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -18,7 +18,7 @@
     <!-- Plugin CSS -->
     <link href="~/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
     <!-- Theme CSS -->
-    <link href="~/css/creative.min.css" rel="stylesheet">
+    <link href="~/css/creative.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -26,39 +26,39 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     @* CSS CUSTOM *@
-    <link href="~/css/site-custom.css" rel="stylesheet" />
 
-    <!-- jQuery -->
-    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <link href="~/css/site-custom.css" rel="stylesheet" />
 
 </head>
 
 <body>
-    <nav id="mainNav" class="navbar navbar-default">
-        <div class="container-fluid">
+
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top  navb">
+        <div class="container-fluid navb">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+            <div class="navbar-header logo-align">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                    <div class="col-lg-offset-1 col-lg-4">
-                        <img src="~/img/logo.png" />
-                    </div>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <img src="~/img/logo.png"/>
+                </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right dr-menu" id="menu1">
                     <li>
-                        <a class="navcustombutton page-scroll " href="#about"><span class="navcustombutton"> Faça o Exame</span></a>
+                        <a class="page-scroll" href="#about">Faça o Exame</a>
                     </li>
                     <li>
-                        <a class="page-scroll navcustombutton" href="#services"><span class="navcustombutton"> Entenda</span></a>
+                        <a class="page-scroll" href="#services">Entenda</a>
                     </li>
                     <li>
-                        <a class="page-scroll navcustombutton" href="#portfolio"><span class="navcustombutton"> Impacto Digital</span></a>
+                        <a class="page-scroll" href="#portfolio">Impacto Digital</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact"><span class="navcustombutton"> Ranking</span></a>
+                        <a class="page-scroll" href="#contact">Ranking</a>
                     </li>
                 </ul>
             </div>
@@ -67,15 +67,55 @@
         <!-- /.container-fluid -->
     </nav>
 
+    <header>
+       
+        <div id="text-carousel" class="carousel slide vertical-center" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="row">
+                <div class="col-xs-offset-3 col-xs-6">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="carousel-content">
+                                <div>
+                                    <p>Você é o rei das mídias sociais?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="carousel-content">
+                                <div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, sint fuga temporibus nam saepe delectus expedita vitae magnam necessitatibus dolores tempore consequatur dicta cumque repellendus eligendi ducimus placeat! </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="carousel-content">
+                                <div>
+                                    <p>Sapiente, ducimus, voluptas, mollitia voluptatibus nemo explicabo sit blanditiis laborum dolore illum fuga veniam quae expedita libero accusamus quas harum ex numquam necessitatibus provident deleniti tenetur iusto officiis recusandae corporis culpa quaerat?</p>
+                                </div>
+                            </div>
+                        </div>
 
-  
+                    </div>
+                </div>
+            </div>
+            <!-- Controls --> <a class="left carousel-control" href="#text-carousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#text-carousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
 
-    
+        </div>
+       
+    </header>
+
+
 
     @RenderBody()
 
-
-
+    <!-- jQuery -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- Plugin JavaScript -->
@@ -84,10 +124,6 @@
     <script src="~/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
     <!-- Theme JavaScript -->
     <script src="~/js/creative.min.js"></script>
-
-
-
-
 
 </body>
 </html>

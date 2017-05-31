@@ -1,37 +1,49 @@
-﻿<section style="margin-top: 5%">
+﻿
+@{
+    ViewBag.Title = "Faça o Teste";
+}
+
+<section style="margin-top: 5%">
     <div class="container">
         <div class="col-lg-offset-3 col-lg-6">
             <div class="row">
                 <div>
                     <form id="companyForm" action="https://pagseguro.uol.com.br/checkout/v2/cart.html?action=add" method="post" onsubmit="PagSeguroLightbox(this); return false" class="form-horizontal">
-                        <input type="hidden" name="itemCode" value="FE803541C7C756AFF4E05F9DE3FCB7B2" />
+                        <input type="hidden" name="itemCode" value="EE7B3781D1D17C1004D60FBE4CF35732" />
                         @*<input type="hidden" name="iot" value="button" />*@
                         @*<input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />*@
 
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="fullname">Nome Completo:</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Nome Completo">
+                                <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Nome Completo" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="email">E-mail:</label>
                             <div class="col-sm-8">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="emails@email.com">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="emails@email.com" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="companyName">Nome da Empresa:</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Empresa ME">
+                                <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Empresa ME" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="companyName">CPF ou CNPJ:</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" name="identityId" id="identityId" placeholder="12345678909" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="companyType">Ramo da Empresa:</label>
                             <div class="col-sm-8">
-                                <select class="form-control"name="companyType" id="companyType">
+                                <select class="form-control"name="companyType" id="companyType" required>
                                     <option>Selecionar</option>
                                     <option>Indústria</option>
                                     <option>Comércio</option>
@@ -46,11 +58,11 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="companySize">Tamanho da Empresa:</label>
                             <div class="col-sm-8">
-                                <select class="form-control" name="companySize" id="companySize">
+                                <select class="form-control" name="companySize" id="companySize" required>
                                     <option>Selecionar</option>
                                     <option>Pequena</option>
                                     <option>Média</option>
-                                    <option>Grande</option>
+                                    <option>Grande</option>x'
                                 </select>
                             </div>
                         </div>
@@ -61,6 +73,13 @@
                                 <button type="submit" class="btn btn-info confirmButton" id="discover">DESCUBRA</button>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <img src="~/img/logo-pagseguro1.png"/>
+                            </div>
+                        </div>
+
                     </form>
                     <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
 

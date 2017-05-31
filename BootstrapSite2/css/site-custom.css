@@ -5,3 +5,42 @@
 .confirmButton {
     width:100%;
 }
+
+.container-fluid.navb {
+  height:120px;
+}
+
+.navbar-header.logo-align {
+    margin-left:300px;
+}
+
+.nav.navbar-nav.navbar-right.dr-menu a {
+    text-transform:none;
+    font-size:15px;
+    color: black;
+}
+
+
+.vertical-center {
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+}
+
+.carousel.slide.vertical-center {
+   background: none;
+   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+   height:400px;
+}
+
+.carousel-control.left
+{
+	background: none;
+}
+.carousel-control.right
+{
+	background: none;
+}
+
+
+

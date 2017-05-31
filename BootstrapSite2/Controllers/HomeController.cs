@@ -11,6 +11,7 @@ namespace BootstrapSite2.Controllers
         public ActionResult Index()
         {
             return View();
+            return RedirectToAction("faca-o-teste", "midiasocial");
         }
     }
 }
