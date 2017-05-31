@@ -13,5 +13,11 @@ namespace BootstrapSite2.Controllers
             ViewBag.Title="My Consulting";
             return View();
         }
+
+        public ActionResult TestYourPage()
+        {
+            return View();
+        }
+
     }
 }
