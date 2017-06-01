@@ -95,7 +95,7 @@ namespace BootstrapSite2.Controllers
         {
             using (MailMessage mail = new MailMessage())
             {
-                mail.From = new MailAddress("contato.doutormidia@gmail.com");
+                mail.From = new MailAddress("contato@doutormidias.com.br");
                 mail.To.Add(company.email);
                 mail.Subject = "Ranking de Impacto Digital";
                 mail.Body = "<h3>Olá, Tudo bem?</h3><br><p> Após a confirmação do pagamento, em breve você " +
@@ -107,7 +107,7 @@ namespace BootstrapSite2.Controllers
 
                 using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                 {
-                    smtp.Credentials = new NetworkCredential("contato.doutormidia@gmail.com", "gama123456");
+                    smtp.Credentials = new NetworkCredential("contato@doutormidias.com.br", "@gama123456");
                     smtp.EnableSsl = true;
                     smtp.Send(mail);
                 }
@@ -120,8 +120,8 @@ namespace BootstrapSite2.Controllers
         {
             using (MailMessage mail = new MailMessage())
             {
-                mail.From = new MailAddress("contato.doutormidia@gmail.com");
-                mail.To.Add("contato.doutormidia@gmail.com");
+                mail.From = new MailAddress("contato@doutormidias.com.br");
+                mail.To.Add("contato@doutormidias.com.br");
                 mail.Subject = "Aguardando confirmação do pagamento - Passo 1: " + company.fullName;
                 mail.Body = "<h2>Novo Cliente ! </p> <br/> <p> Nome Completo: " + company.fullName +
                     " <br/>E-mail: " + company.email +
@@ -204,7 +204,7 @@ namespace BootstrapSite2.Controllers
 
                 using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                 {
-                    smtp.Credentials = new NetworkCredential("contato.doutormidia@gmail.com", "gama123456");
+                    smtp.Credentials = new NetworkCredential("contato@doutormidias.com.br", "@gama123456");
                     smtp.EnableSsl = true;
                     smtp.Send(mail);
                 }

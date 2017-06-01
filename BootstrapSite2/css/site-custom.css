@@ -2,24 +2,46 @@
     color: black;
 }
 
+body { font-family: 'Open Sans', sans-serif !important; }
+
 .confirmButton {
-    width: 50%;
-    /*height: 40px;*/
+    max-width: 400px;
     vertical-align: middle;
+	background: #ffad32;
+	background: -moz-linear-gradient(top, #ffad32 0%, #f0870c 100%);
+	background: -webkit-linear-gradient(top, #ffad32 0%,#f0870c 100%);
+	background: linear-gradient(to bottom, #ffad32 0%,#f0870c 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffad32', endColorstr='#f0870c',GradientType=0 );
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(152,153,152,0.2);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(152,153,152,0.2);
+	box-shadow: 10px 10px 5px 0px rgba(152,153,152,0.2);
 }
 
 .tituloBanner {
     font-weight: bold;
-    font-size: 30px;
+    font-size: 36px;
+	font-family: 'Ubuntu', sans-serif;
+	color: #1f3d49;
 }
 
 #buttonDescubra  {
-    height: 50px;
+
     vertical-align: middle;
     /*padding-top:10%;*/
-    padding: 1em;
     /*z-index: !important 200;*/
-
+	padding: 20px 35px 20px;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+	font-size: 24px;
+	color: #fafafa;
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(152,153,152,0.2);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(152,153,152,0.2);
+	box-shadow: 10px 10px 5px 0px rgba(152,153,152,0.2);
+	background: #7db9e8;
+	background: -moz-linear-gradient(top, #7db9e8 0%, #3e92d7 100%);
+	background: -webkit-linear-gradient(top, #7db9e8 0%,#3e92d7 100%);
+	background: linear-gradient(to bottom, #7db9e8 0%,#3e92d7 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#3e92d7',GradientType=0 );
 }
 
 .nav-transparent{
@@ -28,9 +50,18 @@
 }
 
 .tituloPip {
-    font-weight: bold;
-    font-size: 18px;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+	font-size: 36px;
+	color: #1f3d49;
+	text-align: center;
 }
+	.col-lg-2 {
+		color: #3c555f; 
+		font-size: 13px;
+		line-height: 15px;
+		text-align: justify;
+	}
 
 .container-fluid.navb {
     height: 120px;
@@ -69,13 +100,20 @@
 
 .nav.navbar-nav.navbar-right.dr-menu a {
     text-transform: none;
-    font-size: 15px;
+    font-size: 24px;
     color: black;
+	font-family: 'Ubuntu', sans-serif;
+	margin-left: 40px;
+	-webkit-transition: all .3s; -moz-transition: all .3s; transition: all .3s;
 }
+	.nav.navbar-nav.navbar-right.dr-menu a:hover { color: #3e92d7; -webkit-transition: all .3s; -moz-transition: all .3s; transition: all .3s; }
 
 #rankingImageDescription {
     margin-top: 35%;
-    font-size: 25px;
+    font-size: 36px;
+	color: #09202c;
+	text-align: center;
+	font-weight: 200;
 }
 
 .vertical-center {
