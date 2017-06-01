@@ -12,16 +12,15 @@ namespace BootstrapSite2
     using System;
     using System.Collections.Generic;
     
-    public partial class Company
+    public partial class Linkedin
     {
-        public int companyId { get; set; }
-        public string fullName { get; set; }
-        public string email { get; set; }
-        public string companyName { get; set; }
-        public string companyType { get; set; }
-        public string companySize { get; set; }
-        public string identityId { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> Seguidores { get; set; }
+        public Nullable<double> MediaPostSemana { get; set; }
+        public Nullable<double> MediaCurtidasPost { get; set; }
+        public Nullable<double> MediaImpressoesPost { get; set; }
+        public string UserEmail { get; set; }
         public Nullable<System.Guid> CompanyGuid { get; set; }
-        public Nullable<System.DateTime> DataRegistro { get; set; }
+        public Nullable<double> NewSeguidores { get; set; }
     }
 }

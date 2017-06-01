@@ -26,5 +26,9 @@ namespace BootstrapSite2
         }
     
         public virtual DbSet<Company> Company { get; set; }
+        public virtual DbSet<Facebook> Facebook { get; set; }
+        public virtual DbSet<Instagram> Instagram { get; set; }
+        public virtual DbSet<Linkedin> Linkedin { get; set; }
+        public virtual DbSet<Twitter> Twitter { get; set; }
     }
 }

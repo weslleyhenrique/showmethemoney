@@ -119,6 +119,9 @@
 #impactoDigital {
     background-color: lightblue;
 }
+.label-center{
+    text-align:center;
+}
 
 @media only screen and (max-width: 1026px) {
     #logo {
@@ -128,4 +131,7 @@
     #logoAlternativo {
         display: inline;
     }
+}
+.midia{
+    margin-bottom:5px;
 }
