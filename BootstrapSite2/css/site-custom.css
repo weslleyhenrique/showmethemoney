@@ -1,11 +1,18 @@
-﻿.navcustombutton {
+﻿
+section {
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.navcustombutton {
     color: black;
 }
 
 body { font-family: 'Open Sans', sans-serif !important; }
 
 .confirmButton {
-    max-width: 400px;
+    min-width: 30%;
+    /*height: 40px;*/
     vertical-align: middle;
 	background: #ffad32;
 	background: -moz-linear-gradient(top, #ffad32 0%, #f0870c 100%);
@@ -47,11 +54,12 @@ body { font-family: 'Open Sans', sans-serif !important; }
 .nav-transparent{
     background-color: transparent;
     z-index:2;
+    border-bottom: 0;
 }
 
 .tituloPip {
 	font-family: 'Ubuntu', sans-serif;
-	font-weight: bold;
+    font-weight: bold;
 	font-size: 36px;
 	color: #1f3d49;
 	text-align: center;
@@ -61,7 +69,7 @@ body { font-family: 'Open Sans', sans-serif !important; }
 		font-size: 13px;
 		line-height: 15px;
 		text-align: justify;
-	}
+}
 
 .container-fluid.navb {
     height: 120px;
@@ -82,9 +90,7 @@ body { font-family: 'Open Sans', sans-serif !important; }
 
 
 .sectionPadding {
-    padding-top: 40px;
-    padding-bottom: 40px;
-
+    padding-top: 100px;
 }
 
 .banner {
@@ -110,10 +116,21 @@ body { font-family: 'Open Sans', sans-serif !important; }
 
 #rankingImageDescription {
     margin-top: 35%;
-    font-size: 36px;
 	color: #09202c;
-	text-align: center;
 	font-weight: 200;
+    text-align: center;
+    font-size: 25px;
+}
+
+#Ranking img {
+    margin-bottom: 30px;
+}
+
+#Ranking a {
+    display: block;
+    margin: auto;
+    width: auto;
+    height: auto;
 }
 
 .vertical-center {
@@ -136,8 +153,27 @@ body { font-family: 'Open Sans', sans-serif !important; }
     background: none;
 }
 
+.center {
+    margin: auto;
+}
+
 #pips{
-    margin-top:330px
+    margin-top:400px;
+}
+
+#impactoDigital {
+    padding: 30px;
+}
+
+#impactoDigital img {
+    margin: 50px auto;
+}
+
+#impactoDigital a {
+    display: block;
+    margin: auto;
+    width: auto;
+    height: auto;
 }
 
 .resizibleImg {
@@ -161,7 +197,7 @@ body { font-family: 'Open Sans', sans-serif !important; }
     text-align:center;
 }
 
-@media only screen and (max-width: 1026px) {
+@media only screen and (max-width: 1024px) {
     #logo {
         display: none;
     }
@@ -169,7 +205,18 @@ body { font-family: 'Open Sans', sans-serif !important; }
     #logoAlternativo {
         display: inline;
     }
+
 }
-.midia{
-    margin-bottom:5px;
+
+@media only screen and (min-width: 1024px) {
+    #impactoDigital a {
+        width: 50%;
+    }
+
+    #Ranking a {
+        width: 50%;
+    }
+}
+    .midia {
+        margin-bottom: 5px;
 }
