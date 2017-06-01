@@ -3,44 +3,129 @@
 }
 
 .confirmButton {
-    width:100%;
+    width: 50%;
+    /*height: 40px;*/
+    vertical-align: middle;
+}
+
+.tituloBanner {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#buttonDescubra  {
+    height: 50px;
+    vertical-align: middle;
+    /*padding-top:10%;*/
+    padding: 1em;
+    /*z-index: !important 200;*/
+
+}
+
+.nav-transparent{
+    background-color: transparent;
+    z-index:2;
+}
+
+.tituloPip {
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .container-fluid.navb {
-  height:120px;
+    height: 120px;
 }
 
 .navbar-header.logo-align {
-    margin-left:300px;
+    margin-left: 300px;
+}
+
+#logo {
+    margin-left: 10%;
+}
+
+.centeredText {
+    Display: table-cell;
+    vertical-align: middle;
+}
+
+
+.sectionPadding {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+}
+
+.banner {
+    background-image: url('../img/fundo1.jpg');
+    display: table;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    /*z-index: -1;*/
+    top: 0;
+    height: 600px;
 }
 
 .nav.navbar-nav.navbar-right.dr-menu a {
-    text-transform:none;
-    font-size:15px;
+    text-transform: none;
+    font-size: 15px;
     color: black;
 }
 
+#rankingImageDescription {
+    margin-top: 35%;
+    font-size: 25px;
+}
 
 .vertical-center {
-  position: absolute;
-  top: 60%;
-  transform: translateY(-50%);
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
 }
 
 .carousel.slide.vertical-center {
-   background: none;
-   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-   height:400px;
+    background: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    height: 400px;
 }
 
-.carousel-control.left
-{
-	background: none;
-}
-.carousel-control.right
-{
-	background: none;
+.carousel-control.left {
+    background: none;
 }
 
+.carousel-control.right {
+    background: none;
+}
 
+#pips{
+    margin-top:330px
+}
 
+.resizibleImg {
+    width: inherit; /* This makes the next two lines work in IE8. */
+    max-width: 100%; /* Add !important if needed. */
+    height: auto; /* Add !important if needed. */
+}
+
+#logoAlternativo {
+    display: none;
+    text-transform: none;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+}
+
+#impactoDigital {
+    background-color: lightblue;
+}
+
+@media only screen and (max-width: 1026px) {
+    #logo {
+        display: none;
+    }
+
+    #logoAlternativo {
+        display: inline;
+    }
+}

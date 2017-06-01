@@ -225,8 +225,12 @@
     <Content Include="img\favicon.ico" />
     <Content Include="img\fundo1.jpg" />
     <Content Include="img\header.jpg" />
+    <Content Include="img\impacto.png" />
     <Content Include="img\logo-pagseguro1.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\pip1.png" />
+    <Content Include="img\pip2.png" />
+    <Content Include="img\pip3.png" />
     <Content Include="img\portfolio\fullsize\1.jpg" />
     <Content Include="img\portfolio\fullsize\2.jpg" />
     <Content Include="img\portfolio\fullsize\3.jpg" />
@@ -239,6 +243,7 @@
     <Content Include="img\portfolio\thumbnails\4.jpg" />
     <Content Include="img\portfolio\thumbnails\5.jpg" />
     <Content Include="img\portfolio\thumbnails\6.jpg" />
+    <Content Include="img\ranking.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\creative.js" />
