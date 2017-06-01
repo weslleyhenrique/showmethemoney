@@ -6,6 +6,10 @@
     <edmx:Diagrams>
       <Diagram DiagramId="a34a7c5493bb446ea5105eafac08f9d2" Name="Diagram1">
         <EntityTypeShape EntityType="doutormidiaModel.Company" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="doutormidiaModel.Facebook" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="doutormidiaModel.Instagram" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="doutormidiaModel.Linkedin" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="doutormidiaModel.Twitter" Width="1.5" PointX="2.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

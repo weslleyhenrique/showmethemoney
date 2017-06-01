@@ -16,9 +16,66 @@
           <Property Name="companyType" Type="nvarchar" MaxLength="150" />
           <Property Name="companySize" Type="nvarchar" MaxLength="150" />
           <Property Name="identityId" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyGuid" Type="uniqueidentifier" />
+          <Property Name="DataRegistro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Facebook">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Likes" Type="int" />
+          <Property Name="MediaPostSemana" Type="float" />
+          <Property Name="MediaInteracoesPost" Type="float" />
+          <Property Name="MediaCompartilhamento" Type="float" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="150" />
+          <Property Name="CompanyGuid" Type="uniqueidentifier" />
+          <Property Name="NumLikes" Type="float" />
+        </EntityType>
+        <EntityType Name="Instagram">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seguidores" Type="int" />
+          <Property Name="MediaPostSemana" Type="float" />
+          <Property Name="MediaCurtidaPost" Type="float" />
+          <Property Name="MediaStoriesSemana" Type="float" />
+          <Property Name="MediaViewsStory" Type="float" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="150" />
+          <Property Name="CompanyGuid" Type="uniqueidentifier" />
+          <Property Name="NewSeguidores" Type="float" />
+        </EntityType>
+        <EntityType Name="Linkedin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seguidores" Type="int" />
+          <Property Name="MediaPostSemana" Type="float" />
+          <Property Name="MediaCurtidasPost" Type="float" />
+          <Property Name="MediaImpressoesPost" Type="float" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="150" />
+          <Property Name="CompanyGuid" Type="uniqueidentifier" />
+          <Property Name="NewSeguidores" Type="float" />
+        </EntityType>
+        <EntityType Name="Twitter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seguidores" Type="int" />
+          <Property Name="MediaTweetsSemana" Type="float" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="150" />
+          <Property Name="CompanyGuid" Type="uniqueidentifier" />
+          <Property Name="NewSeguidores" Type="float" />
         </EntityType>
         <EntityContainer Name="doutormidiaModelStoreContainer">
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Facebook" EntityType="Self.Facebook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Instagram" EntityType="Self.Instagram" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Linkedin" EntityType="Self.Linkedin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Twitter" EntityType="Self.Twitter" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -26,6 +83,10 @@
       <Schema Namespace="doutormidiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="doutormidiaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Company" EntityType="doutormidiaModel.Company" />
+          <EntitySet Name="Facebook" EntityType="doutormidiaModel.Facebook" />
+          <EntitySet Name="Instagram" EntityType="doutormidiaModel.Instagram" />
+          <EntitySet Name="Linkedin" EntityType="doutormidiaModel.Linkedin" />
+          <EntitySet Name="Twitter" EntityType="doutormidiaModel.Twitter" />
         </EntityContainer>
         <EntityType Name="Company">
           <Key>
@@ -38,8 +99,61 @@
           <Property Name="companyType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="companySize" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="identityId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyGuid" Type="Guid" />
+          <Property Name="DataRegistro" Type="DateTime" Precision="3" />
         </EntityType>
-      </Schema>
+        <EntityType Name="Facebook">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Likes" Type="Int32" />
+          <Property Name="MediaPostSemana" Type="Double" />
+          <Property Name="MediaInteracoesPost" Type="Double" />
+          <Property Name="MediaCompartilhamento" Type="Double" />
+          <Property Name="UserEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyGuid" Type="Guid" />
+          <Property Name="NumLikes" Type="Double" />
+        </EntityType>
+        <EntityType Name="Instagram">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seguidores" Type="Int32" />
+          <Property Name="MediaPostSemana" Type="Double" />
+          <Property Name="MediaCurtidaPost" Type="Double" />
+          <Property Name="MediaStoriesSemana" Type="Double" />
+          <Property Name="MediaViewsStory" Type="Double" />
+          <Property Name="UserEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyGuid" Type="Guid" />
+          <Property Name="NewSeguidores" Type="Double" />
+        </EntityType>
+        <EntityType Name="Linkedin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seguidores" Type="Int32" />
+          <Property Name="MediaPostSemana" Type="Double" />
+          <Property Name="MediaCurtidasPost" Type="Double" />
+          <Property Name="MediaImpressoesPost" Type="Double" />
+          <Property Name="UserEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyGuid" Type="Guid" />
+          <Property Name="NewSeguidores" Type="Double" />
+        </EntityType>
+        <EntityType Name="Twitter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seguidores" Type="Int32" />
+          <Property Name="MediaTweetsSemana" Type="Double" />
+          <Property Name="UserEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyGuid" Type="Guid" />
+          <Property Name="NewSeguidores" Type="Double" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -48,6 +162,8 @@
           <EntitySetMapping Name="Company">
             <EntityTypeMapping TypeName="doutormidiaModel.Company">
               <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="DataRegistro" ColumnName="DataRegistro" />
+                <ScalarProperty Name="CompanyGuid" ColumnName="CompanyGuid" />
                 <ScalarProperty Name="identityId" ColumnName="identityId" />
                 <ScalarProperty Name="companySize" ColumnName="companySize" />
                 <ScalarProperty Name="companyType" ColumnName="companyType" />
@@ -55,6 +171,61 @@
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="fullName" ColumnName="fullName" />
                 <ScalarProperty Name="companyId" ColumnName="companyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facebook">
+            <EntityTypeMapping TypeName="doutormidiaModel.Facebook">
+              <MappingFragment StoreEntitySet="Facebook">
+                <ScalarProperty Name="NumLikes" ColumnName="NumLikes" />
+                <ScalarProperty Name="CompanyGuid" ColumnName="CompanyGuid" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="MediaCompartilhamento" ColumnName="MediaCompartilhamento" />
+                <ScalarProperty Name="MediaInteracoesPost" ColumnName="MediaInteracoesPost" />
+                <ScalarProperty Name="MediaPostSemana" ColumnName="MediaPostSemana" />
+                <ScalarProperty Name="Likes" ColumnName="Likes" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instagram">
+            <EntityTypeMapping TypeName="doutormidiaModel.Instagram">
+              <MappingFragment StoreEntitySet="Instagram">
+                <ScalarProperty Name="NewSeguidores" ColumnName="NewSeguidores" />
+                <ScalarProperty Name="CompanyGuid" ColumnName="CompanyGuid" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="MediaViewsStory" ColumnName="MediaViewsStory" />
+                <ScalarProperty Name="MediaStoriesSemana" ColumnName="MediaStoriesSemana" />
+                <ScalarProperty Name="MediaCurtidaPost" ColumnName="MediaCurtidaPost" />
+                <ScalarProperty Name="MediaPostSemana" ColumnName="MediaPostSemana" />
+                <ScalarProperty Name="Seguidores" ColumnName="Seguidores" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Linkedin">
+            <EntityTypeMapping TypeName="doutormidiaModel.Linkedin">
+              <MappingFragment StoreEntitySet="Linkedin">
+                <ScalarProperty Name="NewSeguidores" ColumnName="NewSeguidores" />
+                <ScalarProperty Name="CompanyGuid" ColumnName="CompanyGuid" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="MediaImpressoesPost" ColumnName="MediaImpressoesPost" />
+                <ScalarProperty Name="MediaCurtidasPost" ColumnName="MediaCurtidasPost" />
+                <ScalarProperty Name="MediaPostSemana" ColumnName="MediaPostSemana" />
+                <ScalarProperty Name="Seguidores" ColumnName="Seguidores" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Twitter">
+            <EntityTypeMapping TypeName="doutormidiaModel.Twitter">
+              <MappingFragment StoreEntitySet="Twitter">
+                <ScalarProperty Name="NewSeguidores" ColumnName="NewSeguidores" />
+                <ScalarProperty Name="CompanyGuid" ColumnName="CompanyGuid" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="MediaTweetsSemana" ColumnName="MediaTweetsSemana" />
+                <ScalarProperty Name="Seguidores" ColumnName="Seguidores" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

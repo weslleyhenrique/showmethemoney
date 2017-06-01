@@ -42,5 +42,10 @@
 	background: none;
 }
 
+.label-center{
+    text-align:center;
+}
 
-
+.midia{
+    margin-bottom:5px;
+}
