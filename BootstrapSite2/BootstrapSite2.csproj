@@ -352,6 +352,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Midia\teste.cshtml" />
     <None Include="Properties\PublishProfiles\Publicação AWS.pubxml" />
+    <Content Include="Views\Midia\agradecimento.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

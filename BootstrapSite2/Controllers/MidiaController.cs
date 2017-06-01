@@ -16,5 +16,13 @@ namespace BootstrapSite2.Controllers
         {
             return View();
         }
+
+        // GET: Midia
+        [Route("thank-you")]
+
+        public ActionResult agradecimento()
+        {
+            return View();
+        }
     }
 }
