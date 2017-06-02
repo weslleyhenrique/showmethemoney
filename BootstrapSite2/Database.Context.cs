@@ -25,13 +25,10 @@ namespace BootstrapSite2
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BlogLeads> BlogLeads { get; set; }
-        public virtual DbSet<Comments> Comments { get; set; }
         public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<Facebook> Facebook { get; set; }
         public virtual DbSet<Instagram> Instagram { get; set; }
         public virtual DbSet<Linkedin> Linkedin { get; set; }
-        public virtual DbSet<Students> Students { get; set; }
         public virtual DbSet<Twitter> Twitter { get; set; }
     }
 }

@@ -171,12 +171,6 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="BlogLeads.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Comments.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="Company.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -213,9 +207,6 @@
     <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Students.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="Twitter.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -247,9 +238,12 @@
     <Content Include="img\fundo1.jpg" />
     <Content Include="img\header.jpg" />
     <Content Include="img\impacto.png" />
-    <Content Include="img\interna-planos.jpg" />
+    <Content Include="img\interna-planos.png" />
+    <Content Include="img\interna-ranking.jpg" />
+    <Content Include="img\logo-min.jpg" />
     <Content Include="img\logo-pagseguro1.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\next1.png" />
     <Content Include="img\pip1.png" />
     <Content Include="img\pip2.png" />
     <Content Include="img\pip3.png" />
@@ -265,6 +259,7 @@
     <Content Include="img\portfolio\thumbnails\4.jpg" />
     <Content Include="img\portfolio\thumbnails\5.jpg" />
     <Content Include="img\portfolio\thumbnails\6.jpg" />
+    <Content Include="img\ranking-min.jpg" />
     <Content Include="img\ranking.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />

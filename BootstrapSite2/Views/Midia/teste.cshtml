@@ -15,11 +15,7 @@
             <br />
             <br/>
                 <div>
-                    <form id="companyForm" action="https://pagseguro.uol.com.br/checkout/v2/cart.html?action=add" method="post" onsubmit="PagSeguroLightbox(this); return false" class="form-horizontal">
-                        <input type="hidden" name="itemCode" id="itemCode" />
-                        @*<input type="hidden" name="iot" value="button" />*@
-                        @*<input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />*@
-
+                    <form id="companyForm" class="form-horizontal" action="https://pag.ae/bmkTBdv">
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="fullname">Nome Completo:</label>
                             <div class="col-sm-8">
@@ -85,7 +81,7 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Facebook</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control midia" name="Facebook" id="LikesFacebook" placeholder="Link da sua page no Facebook">
+                                <input type="text" class="form-control midia" name="Facebook" id="LikesFacebook" placeholder="Link da sua FanPage no Facebook">
 
                             </div>
                         </div>
@@ -118,7 +114,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-8">
-                                <button type="submit" class="btn btn-info confirmButton" id="discover">DESCUBRA</button>
+                              <button class="btn btn-info confirmButton" id="discover" >DESCUBRA</button>
                             </div>
                         </div>
 
@@ -129,7 +125,6 @@
                         </div>
 
                     </form>
-                    <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
 
                 </div>
             </div>
@@ -159,12 +154,14 @@
 
         $("#goldPlan").click(function () {
             $(".goldPlanOption").show();
-            $("#itemCode").val("E9BE6BDA7171350EE4A1DF8BB2D58B1C");
+            var link = document.getElementById("companyForm");
+            link.setAttribute("action", "https://pag.ae/bbkTBdy");
         });
 
         $("#basicPlan").click(function () {
-            $("#itemCode").val("149F03396262A3CDD4999F8DEF3A7AA9");
             $(".goldPlanOption").hide();
+            var link = document.getElementById("companyForm");
+            link.setAttribute("action", "https://pag.ae/bmkTBdv");
         });
 
         $("#discover").click(function () {

@@ -14,6 +14,7 @@ namespace BootstrapSite2.Models
         public string companyType { get; set; }
         public string companySize { get; set; }
         public string identityId { get; set; }
+        public string Plan { get; set; }
 
 
         //Facebook

@@ -12,7 +12,7 @@ namespace BootstrapSite2.Controllers
     public class CompanyAPIController : ApiController
     {
         private doutormidiaEntities db = new doutormidiaEntities();
-
+        protected string PlanType;
 
         [HttpGet]
         public string getCompany()
@@ -41,6 +41,9 @@ namespace BootstrapSite2.Controllers
             comp.Twitter = company.Twitter;
             comp.DataRegistro = DateTime.UtcNow.AddHours(-3);
             comp.CompanyGuid = Guid.NewGuid();
+            comp.IsGoldPlan = company.Plan.ToUpper() != "BASIC";
+            PlanType = (bool)comp.IsGoldPlan ? "Gold" : "Básico";
+
 
             db.Company.Add(comp);
 
@@ -62,11 +65,12 @@ namespace BootstrapSite2.Controllers
                 mail.Body = "<h3>Olá, Tudo bem?</h3><br><p> Após a confirmação do pagamento, em breve você " +
                     "receberá informações incríveis que vão mudar sua forma de encarar os negócios digitais," +
                     " através de comparação com os seus concorrentes e dicas de como melhorar.</p>" +
+                    "<br> Seu plano escolhido foi" +PlanType +
                     "<br> Equipe Dr. Mídia";
                 mail.IsBodyHtml = true;
                 //mail.Attachments.Add(new Attachment("~/Assets/Como_Montar_Seu_Ecommerce-Ebook.pdf"));
 
-                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                using (SmtpClient smtp = new SmtpClient("smtp.umbler.com", 587))
                 {
                     smtp.Credentials = new NetworkCredential("contato@doutormidias.com.br", "@gama123456");
                     smtp.EnableSsl = true;
@@ -83,41 +87,23 @@ namespace BootstrapSite2.Controllers
             {
                 mail.From = new MailAddress("contato@doutormidias.com.br");
                 mail.To.Add("contato@doutormidias.com.br");
-                mail.Subject = "Aguardando confirmação do pagamento - Passo 1: " + company.fullName;
+                mail.Subject = "Aguardando confirmação do pagamento: " + company.fullName;
                 mail.Body = "<h2>Novo Cliente ! </p> <br/> <p> Nome Completo: " + company.fullName +
                     " <br/>E-mail: " + company.email +
                     " <br/>Nome da Empresa: " + company.companyName +
                     " <br/>Ramo da Empresa: " + company.companyType +
                     " <br/>CPF ou CNPJ: " + company.identityId +
                     "<br/>Tamanho da Empresa: " + company.companySize + " </p>" +
-                    " <table> " +
-                    "<tr>" +
-                    "<td rowspan='4'>Facebook</td>" +
-                    "<td>Nº Likes na Fanpage</td>" +
-                    "<td>" + company.Facebook + "</td>" +
-                   
-                    "<td rowspan='5'>Instagram</td>" +
-                    "<td>Nº Seguidores</td>" +
-                    "<td>" + company.Instagram + "</td>" +
-                    "</tr>" +
-                     "<tr>" +
-                    
-                    "<td>Nº Seguidores</td>" +
-                    "<td>" + company.Linkedin + "</td>" +
-                    "</tr>" +
-                     "<tr>" +
-                    "<td>Média de Posts por semana</td>" +
-                   
-                    "<td rowspan='4'>Twitter</td>" +
-                    "<td>Nº Seguidores</td>" +
-                    "<td>" + company.Twitter + "</td>" +
-                    "</tr>" +
-                                    
-                    "</table>";
+                    "<br/>Plano Escolhido: " +PlanType+ " </p>" +
+                    "<br/>Facebook: " + company.Facebook + " </p>" +
+                    "<br/>Instagram: " + company.Instagram + " </p>" +
+                    "<br/>Linkedin: " + company.Linkedin + " </p>" +
+                    "<br/>Twitter: " + company.Twitter + " </p>";
+
 
                 mail.IsBodyHtml = true;
 
-                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                using (SmtpClient smtp = new SmtpClient("smtp.umbler.com", 587))
                 {
                     smtp.Credentials = new NetworkCredential("contato@doutormidias.com.br", "@gama123456");
                     smtp.EnableSsl = true;

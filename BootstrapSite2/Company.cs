@@ -27,5 +27,6 @@ namespace BootstrapSite2
         public string Instagram { get; set; }
         public string Linkedin { get; set; }
         public string Twitter { get; set; }
+        public Nullable<bool> IsGoldPlan { get; set; }
     }
 }
