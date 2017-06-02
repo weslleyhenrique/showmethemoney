@@ -30,5 +30,6 @@ namespace BootstrapSite2
         public virtual DbSet<Instagram> Instagram { get; set; }
         public virtual DbSet<Linkedin> Linkedin { get; set; }
         public virtual DbSet<Twitter> Twitter { get; set; }
+        public virtual DbSet<BlogLeads> BlogLeads { get; set; }
     }
 }

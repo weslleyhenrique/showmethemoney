@@ -1,16 +1,22 @@
 ﻿
-@{ 
+@{
     ViewBag.Title = "Exame";
 }
 
-
 <section style="margin-top: 5%">
-    <div class="container">
-        <div class="col-lg-offset-3 col-lg-6">
-            <div class="row">
+    <div class="row">
+        <div class="col-lg-offset-1 col-lg-4">            
+            <img class="img-responsive center" src="~/img/interna-planos.png" />
+
+        </div>
+
+        <div class="col-lg-6">
+            <br />
+            <br />
+            <br/>
                 <div>
                     <form id="companyForm" action="https://pagseguro.uol.com.br/checkout/v2/cart.html?action=add" method="post" onsubmit="PagSeguroLightbox(this); return false" class="form-horizontal">
-                        <input type="hidden" name="itemCode" value="EE7B3781D1D17C1004D60FBE4CF35732" />
+                        <input type="hidden" name="itemCode" id="itemCode" />
                         @*<input type="hidden" name="iot" value="button" />*@
                         @*<input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />*@
 
@@ -44,7 +50,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="companyType">Ramo da Empresa:</label>
                             <div class="col-sm-8">
-                                <select class="form-control"name="companyType" id="companyType" required>
+                                <select class="form-control" name="companyType" id="companyType" required>
                                     <option>Selecionar</option>
                                     <option>Indústria</option>
                                     <option>Comércio</option>
@@ -69,48 +75,46 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-4 label-center">Facebook</label>
+                            <label class="control-label col-sm-4" for="companySize">Plano:</label>
                             <div class="col-sm-8">
-                                <input type="number" step=0.01 class="form-control midia" name="LikesFacebook" id="LikesFacebook" placeholder="Nº Likes na Fanpage" >
-                                <input type="number" step=0.01 class="form-control midia" name="PostSemanaFacebook" id="PostSemanaFacebook" placeholder="Média de Posts por semana" >
-                                <input type="number" step=0.01 class="form-control midia" name="InteracoesPostFacebook" id="InteracoesPostFacebook" placeholder="Média de interações nos posts" >
-                                <input type="number" step=0.01 class="form-control midia" name="CompartilhamentoFacebook" id="CompartilhamentoFacebook" placeholder="Média de Compartilhamento" >
+                                <input type="radio" name="plan" id="basicPlan" value="basic" checked="checked" /> Básico &nbsp
+                                <input type="radio" name="plan" id="goldPlan" value="gold" /> Gold
                             </div>
                         </div>
-                        <br />
+
                         <div class="form-group">
-                            <label class="col-sm-4 label-center">Instagram</label>
+                            <label class="col-sm-4 control-label">Facebook</label>
                             <div class="col-sm-8">
-                                <input type="number" step=0.01 class="form-control midia" name="SeguidoresInstagram" id="SeguidoresInstagram" placeholder="Nº Seguidores">
-                                <input type="number" step=0.01 class="form-control midia" name="PostSemanaInstagram" id="PostSemanaInstagram" placeholder="Média de Posts por semana" >
-                                <input type="number" step=0.01 class="form-control midia" name="CurtidaPostInstagram" id="CurtidaPostInstagram" placeholder="Média de curtidas por post" >
-                                <input type="number" step=0.01 class="form-control midia" name="StoriesSemanaInstagram" id="StoriesSemanaInstagram" placeholder="Média de Stories por semana">
-                                <input type="number" step=0.01 class="form-control midia" name="ViewPorStoryInstagram" id="ViewPorStoryInstagram" placeholder="Média de views por Story" >
+                                <input type="text" class="form-control midia" name="LikesFacebook" id="LikesFacebook" placeholder="Link da sua page no Facebook">
+
                             </div>
                         </div>
-                        <br />
-
-
-                        <div class="form-group">
-                            <label class="col-sm-4 label-center">Linkedin</label>
+                        <div class="form-group goldPlanOption">
+                            <label class="col-sm-4 control-label">Instagram</label>
                             <div class="col-sm-8">
-                                <input type="number" step=0.01 class="form-control midia" name="SeguidoresLinkedin" id="SeguidoresLinkedin" placeholder="Nº Seguidores" >
-                                <input type="number" step=0.01 class="form-control midia" name="PostSemanaLinkedin" id="PostSemanaLinkedin" placeholder="Média de Posts por semana" >
-                                <input type="number" step=0.01 class="form-control midia" name="CurtidaPostLinkedin" id="CurtidaPostLinkedin" placeholder="Média de curtidas por post" >
-                                <input type="number" step=0.01 class="form-control midia" name="ImpressoesPostLinkedin" id="ImpressoesPostLinkedin" placeholder="Média de impressões por post" >
-                            </div>             
+                                <input type="text" class="form-control midia" name="SeguidoresInstagram" id="SeguidoresInstagram" placeholder="Link da sua page no Instagram">
+
+                            </div>
                         </div>
 
-                        <br />
 
-                        <div class="form-group">
-                            <label class="col-sm-4 label-center">Twitter</label>
+                        <div class="form-group goldPlanOption">
+                            <label class="col-sm-4 control-label">Linkedin</label>
                             <div class="col-sm-8">
-                                <input type="number" step=0.01 class="form-control midia" name="SeguidoresTwitter" id="SeguidoresTwitter" placeholder="Nº Seguidores">
-                                <input type="number" step=0.01 class="form-control midia" name="PorSemanaTwitter" id="PorSemanaTwitter" placeholder="Média de tweets por semana">
-                            </div>                  
-                        </div>                      
-                                                    
+                                <input type="text" class="form-control midia" name="SeguidoresLinkedin" id="SeguidoresLinkedin" placeholder="Link da sua page no Linkedin">
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group goldPlanOption">
+                            <label class="col-sm-4 control-label">Twitter</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control midia" name="SeguidoresTwitter" id="SeguidoresTwitter" placeholder="Link da sua page no Twitter">
+                                @*<input type="number"  class="form-control midia" name="PorSemanaTwitter" id="PorSemanaTwitter" placeholder="Média de tweets por semana">*@
+                            </div>
+                        </div>
+
 
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-8">
@@ -120,7 +124,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-8">
-                                <img src="~/img/logo-pagseguro1.png"/>
+                                <img src="~/img/logo-pagseguro1.png" />
                             </div>
                         </div>
 
@@ -129,7 +133,6 @@
 
                 </div>
             </div>
-        </div>
     </div>
 </section>
 
@@ -148,13 +151,21 @@
 
         var url = 'http://localhost:50174/api/CompanyAPI';
 
-        //var data = $('#form').serializeArray().reduce(function (obj, item) {
-        //    obj[item.name] = item.value;
-        //    return obj;
-        //}, {});
 
-        
+        var changePaymentItem = function () {
+            console.log("mudar o form");
+        };
 
+
+        $("#goldPlan").click(function () {
+            $(".goldPlanOption").show();
+            $("#itemCode").val("E9BE6BDA7171350EE4A1DF8BB2D58B1C");
+        });
+
+        $("#basicPlan").click(function () {
+            $("#itemCode").val("149F03396262A3CDD4999F8DEF3A7AA9");
+            $(".goldPlanOption").hide();
+        });
 
         $("#discover").click(function () {
             var formData = getFormObj("companyForm");

@@ -5,6 +5,21 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="doutormidiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BlogLeads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ClientIP" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="RegistrationDate" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Company" Type="nvarchar" MaxLength="150" />
+          <Property Name="LeadType" Type="nvarchar" MaxLength="150" />
+          <Property Name="LeadIs" Type="nvarchar" MaxLength="150" />
+          <Property Name="Occupation" Type="nvarchar" MaxLength="150" />
+        </EntityType>
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="companyId" />
@@ -18,6 +33,10 @@
           <Property Name="identityId" Type="nvarchar" MaxLength="50" />
           <Property Name="CompanyGuid" Type="uniqueidentifier" />
           <Property Name="DataRegistro" Type="datetime" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="200" />
+          <Property Name="Instagram" Type="nvarchar" MaxLength="200" />
+          <Property Name="Linkedin" Type="nvarchar" MaxLength="200" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Facebook">
           <Key>
@@ -71,6 +90,7 @@
           <Property Name="NewSeguidores" Type="float" />
         </EntityType>
         <EntityContainer Name="doutormidiaModelStoreContainer">
+          <EntitySet Name="BlogLeads" EntityType="Self.BlogLeads" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Facebook" EntityType="Self.Facebook" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Instagram" EntityType="Self.Instagram" Schema="dbo" store:Type="Tables" />
@@ -87,6 +107,7 @@
           <EntitySet Name="Instagram" EntityType="doutormidiaModel.Instagram" />
           <EntitySet Name="Linkedin" EntityType="doutormidiaModel.Linkedin" />
           <EntitySet Name="Twitter" EntityType="doutormidiaModel.Twitter" />
+          <EntitySet Name="BlogLeads" EntityType="doutormidiaModel.BlogLeads" />
         </EntityContainer>
         <EntityType Name="Company">
           <Key>
@@ -101,6 +122,10 @@
           <Property Name="identityId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CompanyGuid" Type="Guid" />
           <Property Name="DataRegistro" Type="DateTime" Precision="3" />
+          <Property Name="Facebook" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Instagram" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Linkedin" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Twitter" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Facebook">
           <Key>
@@ -153,6 +178,21 @@
           <Property Name="CompanyGuid" Type="Guid" />
           <Property Name="NewSeguidores" Type="Double" />
         </EntityType>
+        <EntityType Name="BlogLeads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ClientIP" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationDate" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LeadType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LeadIs" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Occupation" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -162,6 +202,10 @@
           <EntitySetMapping Name="Company">
             <EntityTypeMapping TypeName="doutormidiaModel.Company">
               <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Linkedin" ColumnName="Linkedin" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
                 <ScalarProperty Name="DataRegistro" ColumnName="DataRegistro" />
                 <ScalarProperty Name="CompanyGuid" ColumnName="CompanyGuid" />
                 <ScalarProperty Name="identityId" ColumnName="identityId" />
@@ -225,6 +269,22 @@
                 <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
                 <ScalarProperty Name="MediaTweetsSemana" ColumnName="MediaTweetsSemana" />
                 <ScalarProperty Name="Seguidores" ColumnName="Seguidores" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogLeads">
+            <EntityTypeMapping TypeName="doutormidiaModel.BlogLeads">
+              <MappingFragment StoreEntitySet="BlogLeads">
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="LeadIs" ColumnName="LeadIs" />
+                <ScalarProperty Name="LeadType" ColumnName="LeadType" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="ClientIP" ColumnName="ClientIP" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

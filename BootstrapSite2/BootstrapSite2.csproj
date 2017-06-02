@@ -171,6 +171,9 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BlogLeads.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Company.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -238,6 +241,7 @@
     <Content Include="img\fundo1.jpg" />
     <Content Include="img\header.jpg" />
     <Content Include="img\impacto.png" />
+    <Content Include="img\interna-planos.jpg" />
     <Content Include="img\logo-pagseguro1.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\pip1.png" />
