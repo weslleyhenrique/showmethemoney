@@ -1,19 +1,22 @@
 ﻿
 @{
     ViewBag.Title = "Exame";
+    Layout = "~/Views/Shared/_Layout_Clean.cshtml";
 }
 
-<section style="margin-top: 5%">
-    <div class="row">
-        <div class="col-lg-offset-1 col-lg-4">            
-            <img class="img-responsive center" src="~/img/interna-planos.png" />
-
+<section style="margin-top: 5%;">
+    <div class="row" >
+        <div class="col-lg-6"  style="margin-top: -8%">
+            <div style="text-align:center" class="center">
+                <img class="center" src="~/img/interna-planos.png" />
+            </div>
         </div>
 
         <div class="col-lg-6">
-            <br />
-            <br />
-            <br/>
+            <div style="float:left">
+                <br />
+                <br />
+                <br />
                 <div>
                     <form id="companyForm" class="form-horizontal" action="https://pag.ae/bmkTBdv">
                         <div class="form-group">
@@ -37,9 +40,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-sm-4" for="companyName">CPF ou CNPJ:</label>
+                            <label class="control-label col-sm-4" for="identityId">CPF ou CNPJ:</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" name="identityId" id="identityId" placeholder="12345678909" required>
+                                <input type="number" class="form-control" name="identityId" id="identityId" placeholder="12345678909 (apenas números)" required>
                             </div>
                         </div>
 
@@ -47,12 +50,12 @@
                             <label class="control-label col-sm-4" for="companyType">Ramo da Empresa:</label>
                             <div class="col-sm-8">
                                 <select class="form-control" name="companyType" id="companyType" required>
-                                    <option>Selecionar</option>
-                                    <option>Indústria</option>
-                                    <option>Comércio</option>
-                                    <option>Serviços</option>
-                                    <option>Tecnologia</option>
-                                    <option>Autônomo</option>
+                                    <option value="">Selecionar</option>
+                                    <option value="Indústria">Indústria</option>
+                                    <option value="Comércio">Comércio</option>
+                                    <option value="Serviços">Serviços</option>
+                                    <option value="Tecnologia">Tecnologia</option>
+                                    <option value="Autônomo">Autônomo</option>
                                 </select>
                             </div>
                         </div>
@@ -62,10 +65,10 @@
                             <label class="control-label col-sm-4" for="companySize">Tamanho da Empresa:</label>
                             <div class="col-sm-8">
                                 <select class="form-control" name="companySize" id="companySize" required>
-                                    <option>Selecionar</option>
-                                    <option>até 9 pessoas</option>
-                                    <option>De 10 a 49</option>
-                                    <option>50 ou mais</option>
+                                    <option value="">Selecionar</option>
+                                    <option value="até 9 pessoas">até 9 pessoas</option>
+                                    <option value="De 10 a 49">De 10 a 49</option>
+                                    <option value="50 ou mais">50 ou mais</option>
                                 </select>
                             </div>
                         </div>
@@ -114,7 +117,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-8">
-                              <button class="btn btn-info confirmButton" id="discover" >DESCUBRA</button>
+                                <button class="btn btn-info confirmButton" id="discover">DESCUBRA</button>
                             </div>
                         </div>
 
@@ -128,6 +131,29 @@
 
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="container">
+        <br /><br />
+        <div class="col-lg-12 text-center">
+            <p class="tituloPip ">Mas o que eu estou comprando?</p>
+            <p>
+                Você está pagando este valor simbólico pelo processo de avaliação de dados
+
+                através de um software exclusivo e dos custos de manutenção do site.
+            </p>
+
+            <img class="img-responsive center" src="~/img/ranking_ex.jpeg" width="200" />
+            <p>
+
+                Com este valor você adquire o diagnóstico do Doutor Mídias com feedbacks
+
+                baseados na análise de suas mídias. Levamos em consideração seu impacto digital e suas méticas.
+
+                Com o plano Gold, daremos mais informações de outros mídias, além de uma análise mais detalhada.
+
+            </p>
+        </div>
     </div>
 </section>
 
@@ -166,6 +192,18 @@
 
         $("#discover").click(function () {
             var formData = getFormObj("companyForm");
+
+
+            if (formData.fullName == "" ||
+                formData.email == "" ||
+                formData.companyName == "" ||
+                formData.identityId == "" ||
+                formData.companyType == "" ||
+                formData.companySize == "")
+            {
+                return;
+            }
+
             console.log(formData);
 
             $.post(url, formData, function (response) {

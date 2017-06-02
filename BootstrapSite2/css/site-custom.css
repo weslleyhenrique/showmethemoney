@@ -89,6 +89,7 @@ body {
     margin-left: 10%;
 }
 
+
 .centeredText {
     Display: table-cell;
     vertical-align: middle;
@@ -205,6 +206,11 @@ body {
 }
 
 #impactoDigital {
+    background-color: lightblue;
+}
+
+
+#impactoDigital-bg {
     background-color: lightblue;
 }
 

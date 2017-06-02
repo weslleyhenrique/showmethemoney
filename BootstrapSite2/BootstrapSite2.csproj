@@ -261,6 +261,7 @@
     <Content Include="img\portfolio\thumbnails\6.jpg" />
     <Content Include="img\ranking-min.jpg" />
     <Content Include="img\ranking.png" />
+    <Content Include="img\ranking_ex.jpeg" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\creative.js" />
@@ -358,6 +359,7 @@
     <Content Include="Views\Midia\teste.cshtml" />
     <None Include="Properties\PublishProfiles\Publicação AWS.pubxml" />
     <Content Include="Views\Midia\agradecimento.cshtml" />
+    <Content Include="Views\Shared\_Layout_Clean.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
