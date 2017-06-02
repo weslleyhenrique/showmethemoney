@@ -35,56 +35,17 @@ namespace BootstrapSite2.Controllers
             comp.email = company.email;
             comp.fullName = company.fullName;
             comp.identityId = company.identityId;
+            comp.Facebook = company.Facebook;
+            comp.Instagram = company.Instagram;
+            comp.Linkedin = company.Linkedin;
+            comp.Twitter = company.Twitter;
             comp.DataRegistro = DateTime.UtcNow.AddHours(-3);
             comp.CompanyGuid = Guid.NewGuid();
 
             db.Company.Add(comp);
 
 
-            Facebook face = new Facebook();
-            face.NumLikes = company.LikesFacebook;
-            face.MediaCompartilhamento = company.CompartilhamentoFacebook;
-            face.MediaInteracoesPost = company.InteracoesPostFacebook;
-            face.MediaPostSemana = company.PostSemanaFacebook;
-            face.UserEmail = company.email;
-            face.CompanyGuid = comp.CompanyGuid;
-
-            db.Facebook.Add(face);
-
-            Instagram insta = new Instagram();
-            insta.NewSeguidores = company.SeguidoresInstagram;
-            insta.MediaCurtidaPost = company.CurtidaPostInstagram;
-            insta.MediaPostSemana = company.PostSemanaInstagram;
-            insta.MediaViewsStory = company.ViewPorStoryInstagram;
-            insta.MediaStoriesSemana = company.StoriesSemanaInstagram;
-            insta.UserEmail = company.email;
-            insta.CompanyGuid = comp.CompanyGuid;
-
-
-            db.Instagram.Add(insta);
-
-
-            Linkedin link = new Linkedin();
-            link.MediaCurtidasPost = company.CurtidaPostLinkedin;
-            link.MediaImpressoesPost = company.ImpressoesPostLinkedin;
-            link.MediaPostSemana = company.PostSemanaLinkedin;
-            link.NewSeguidores = company.SeguidoresLinkedin;
-            link.UserEmail = company.email;
-            link.CompanyGuid = comp.CompanyGuid;
-
-
-            db.Linkedin.Add(link);
-
-
-            Twitter tw = new Twitter();
-            tw.MediaTweetsSemana = company.PorSemanaTwitter;
-            tw.NewSeguidores = company.SeguidoresTwitter;
-            tw.UserEmail = company.email;
-            tw.CompanyGuid = comp.CompanyGuid;
-
-
-            db.Twitter.Add(tw);
-
+          
             db.SaveChanges();
             //TODO: Salvar no banco de dados
             return "Ok - POST";
@@ -133,71 +94,25 @@ namespace BootstrapSite2.Controllers
                     "<tr>" +
                     "<td rowspan='4'>Facebook</td>" +
                     "<td>Nº Likes na Fanpage</td>" +
-                    "<td>" + company.LikesFacebook + "</td>" +
-                    "</tr>" +
-                     "<tr>" +
-                    "<td>Média de Posts por semana</td>" +
-                    "<td>" + company.PostSemanaFacebook + "</td>" +
-                    "</tr>" +
-                     "<tr>" +
-                    "<td>Média de interações nos posts</td>" +
-                    "<td>" + company.InteracoesPostFacebook + "</td>" +
-                    "</tr>" +
-                     "<tr>" +
-                    "<td>Média de Compartilhamento</td>" +
-                    "<td>" + company.CompartilhamentoFacebook + "</td>" +
-                    "</tr>" +
-                    "<hr/>" +
-                    "<tr>" +
+                    "<td>" + company.Facebook + "</td>" +
+                   
                     "<td rowspan='5'>Instagram</td>" +
                     "<td>Nº Seguidores</td>" +
-                    "<td>" + company.SeguidoresInstagram + "</td>" +
+                    "<td>" + company.Instagram + "</td>" +
                     "</tr>" +
                      "<tr>" +
-                    "<td>Média de Posts por semana</td>" +
-                    "<td>" + company.PostSemanaInstagram + "</td>" +
-                    "</tr>" +
-                     "<tr>" +
-                    "<td>Média de curtidas por post</td>" +
-                    "<td>" + company.CurtidaPostInstagram + "</td>" +
-                    "</tr>" +
-                     "<tr>" +
-                    "<td>Média de Stories por semana</td>" +
-                    "<td>" + company.StoriesSemanaInstagram + "</td>" +
-                    "</tr>" +
-                     "<tr>" +
-                    "<td>Média de views por Story</td>" +
-                    "<td>" + company.ViewPorStoryInstagram + "</td>" +
-                    "</tr>" +
-                    "<hr/>" +
-                    "<tr>" +
-                    "<td rowspan='4'>Linkedin</td>" +
+                    
                     "<td>Nº Seguidores</td>" +
-                    "<td>" + company.SeguidoresLinkedin + "</td>" +
+                    "<td>" + company.Linkedin + "</td>" +
                     "</tr>" +
                      "<tr>" +
                     "<td>Média de Posts por semana</td>" +
-                    "<td>" + company.PostSemanaLinkedin + "</td>" +
-                    "</tr>" +
-                     "<tr>" +
-                    "<td>Média de curtidas por post</td>" +
-                    "<td>" + company.CurtidaPostLinkedin + "</td>" +
-                    "</tr>" +
-                     "<tr>" +
-                    "<td>Média de impressões por post</td>" +
-                    "<td>" + company.ImpressoesPostLinkedin + "</td>" +
-                    "</tr>" +
-                    "<hr/>" +
-                    "<tr>" +
+                   
                     "<td rowspan='4'>Twitter</td>" +
                     "<td>Nº Seguidores</td>" +
-                    "<td>" + company.SeguidoresTwitter + "</td>" +
+                    "<td>" + company.Twitter + "</td>" +
                     "</tr>" +
-                     "<tr>" +
-                    "<td>Média de tweets por semana</td>" +
-                    "<td>" + company.PorSemanaTwitter + "</td>" +
-                    "</tr>" +
-                   
+                                    
                     "</table>";
 
                 mail.IsBodyHtml = true;

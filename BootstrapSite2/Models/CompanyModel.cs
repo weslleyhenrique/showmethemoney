@@ -17,27 +17,16 @@ namespace BootstrapSite2.Models
 
 
         //Facebook
-        public double LikesFacebook { get; set; }
-        public double PostSemanaFacebook { get; set; }
-        public double InteracoesPostFacebook { get; set; }
-        public double CompartilhamentoFacebook { get; set; }
+        public string Facebook { get; set; }
 
         //Instagram
-        public double SeguidoresInstagram { get; set; }
-        public double PostSemanaInstagram { get; set; }
-        public double CurtidaPostInstagram { get; set; }
-        public double StoriesSemanaInstagram { get; set; }
-        public double ViewPorStoryInstagram { get; set; }
+        public string Instagram { get; set; }
 
         //Linkedin
-        public double SeguidoresLinkedin { get; set; }
-        public double PostSemanaLinkedin { get; set; }
-        public double CurtidaPostLinkedin { get; set; }
-        public double ImpressoesPostLinkedin { get; set; }
+        public string Linkedin { get; set; }
 
         //Twitter
-        public double SeguidoresTwitter { get; set; }
-        public double PorSemanaTwitter { get; set; }
+        public string Twitter { get; set; }
 
     }
 }

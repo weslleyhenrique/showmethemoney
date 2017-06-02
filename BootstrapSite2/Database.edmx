@@ -20,6 +20,17 @@
           <Property Name="LeadIs" Type="nvarchar" MaxLength="150" />
           <Property Name="Occupation" Type="nvarchar" MaxLength="150" />
         </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StudentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Rating" Type="int" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="IsAnonymous" Type="bit" />
+          <Property Name="IsPublic" Type="bit" />
+        </EntityType>
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="companyId" />
@@ -78,6 +89,21 @@
           <Property Name="CompanyGuid" Type="uniqueidentifier" />
           <Property Name="NewSeguidores" Type="float" />
         </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Stack" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="GeneralRating" Type="int" />
+          <Property Name="PitchRating" Type="int" />
+          <Property Name="EnableEmail" Type="bit" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="150" />
+          <Property Name="Pin" Type="int" />
+          <Property Name="XP" Type="int" />
+        </EntityType>
         <EntityType Name="Twitter">
           <Key>
             <PropertyRef Name="Id" />
@@ -89,26 +115,79 @@
           <Property Name="CompanyGuid" Type="uniqueidentifier" />
           <Property Name="NewSeguidores" Type="float" />
         </EntityType>
+        <Association Name="FK_Comments_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="doutormidiaModelStoreContainer">
           <EntitySet Name="BlogLeads" EntityType="Self.BlogLeads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Facebook" EntityType="Self.Facebook" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Instagram" EntityType="Self.Instagram" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Linkedin" EntityType="Self.Linkedin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Twitter" EntityType="Self.Twitter" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Comments_Students" Association="Self.FK_Comments_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="doutormidiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="doutormidiaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BlogLeads" EntityType="doutormidiaModel.BlogLeads" />
+          <EntitySet Name="Comments" EntityType="doutormidiaModel.Comments" />
           <EntitySet Name="Company" EntityType="doutormidiaModel.Company" />
           <EntitySet Name="Facebook" EntityType="doutormidiaModel.Facebook" />
           <EntitySet Name="Instagram" EntityType="doutormidiaModel.Instagram" />
           <EntitySet Name="Linkedin" EntityType="doutormidiaModel.Linkedin" />
+          <EntitySet Name="Students" EntityType="doutormidiaModel.Students" />
           <EntitySet Name="Twitter" EntityType="doutormidiaModel.Twitter" />
-          <EntitySet Name="BlogLeads" EntityType="doutormidiaModel.BlogLeads" />
+          <AssociationSet Name="FK_Comments_Students" Association="doutormidiaModel.FK_Comments_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="BlogLeads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ClientIP" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationDate" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LeadType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LeadIs" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Occupation" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="StudentId" Type="Guid" Nullable="false" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsAnonymous" Type="Boolean" />
+          <Property Name="IsPublic" Type="Boolean" />
+          <NavigationProperty Name="Students" Relationship="doutormidiaModel.FK_Comments_Students" FromRole="Comments" ToRole="Students" />
+        </EntityType>
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="companyId" />
@@ -167,6 +246,22 @@
           <Property Name="CompanyGuid" Type="Guid" />
           <Property Name="NewSeguidores" Type="Double" />
         </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Stack" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="GeneralRating" Type="Int32" />
+          <Property Name="PitchRating" Type="Int32" />
+          <Property Name="EnableEmail" Type="Boolean" />
+          <Property Name="PhotoPath" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Pin" Type="Int32" />
+          <Property Name="XP" Type="Int32" />
+          <NavigationProperty Name="Comments" Relationship="doutormidiaModel.FK_Comments_Students" FromRole="Students" ToRole="Comments" />
+        </EntityType>
         <EntityType Name="Twitter">
           <Key>
             <PropertyRef Name="Id" />
@@ -178,27 +273,54 @@
           <Property Name="CompanyGuid" Type="Guid" />
           <Property Name="NewSeguidores" Type="Double" />
         </EntityType>
-        <EntityType Name="BlogLeads">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Lastname" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ClientIP" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="RegistrationDate" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Company" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="LeadType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="LeadIs" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Occupation" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-        </EntityType>
+        <Association Name="FK_Comments_Students">
+          <End Type="doutormidiaModel.Students" Role="Students" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="doutormidiaModel.Comments" Role="Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="doutormidiaModelStoreContainer" CdmEntityContainer="doutormidiaEntities">
+          <EntitySetMapping Name="BlogLeads">
+            <EntityTypeMapping TypeName="doutormidiaModel.BlogLeads">
+              <MappingFragment StoreEntitySet="BlogLeads">
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="LeadIs" ColumnName="LeadIs" />
+                <ScalarProperty Name="LeadType" ColumnName="LeadType" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="ClientIP" ColumnName="ClientIP" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="doutormidiaModel.Comments">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Company">
             <EntityTypeMapping TypeName="doutormidiaModel.Company">
               <MappingFragment StoreEntitySet="Company">
@@ -261,6 +383,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="doutormidiaModel.Students">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="XP" ColumnName="XP" />
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="EnableEmail" ColumnName="EnableEmail" />
+                <ScalarProperty Name="PitchRating" ColumnName="PitchRating" />
+                <ScalarProperty Name="GeneralRating" ColumnName="GeneralRating" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Stack" ColumnName="Stack" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Twitter">
             <EntityTypeMapping TypeName="doutormidiaModel.Twitter">
               <MappingFragment StoreEntitySet="Twitter">
@@ -269,22 +407,6 @@
                 <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
                 <ScalarProperty Name="MediaTweetsSemana" ColumnName="MediaTweetsSemana" />
                 <ScalarProperty Name="Seguidores" ColumnName="Seguidores" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BlogLeads">
-            <EntityTypeMapping TypeName="doutormidiaModel.BlogLeads">
-              <MappingFragment StoreEntitySet="BlogLeads">
-                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
-                <ScalarProperty Name="LeadIs" ColumnName="LeadIs" />
-                <ScalarProperty Name="LeadType" ColumnName="LeadType" />
-                <ScalarProperty Name="Company" ColumnName="Company" />
-                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
-                <ScalarProperty Name="ClientIP" ColumnName="ClientIP" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
