@@ -23,33 +23,41 @@ namespace BootstrapSite2.Controllers
         [HttpPost]
         public string postCompany(CompanyModel company)
         {
-            //Enviando Emails
-            sendEmailToClient(company); //Um para o cliente
-            sendPrivateEmail(company); // Um para nós
+
+            try
+            {
 
 
-            Company comp = new Company();
-            comp.companyName = company.companyName;
-            comp.companySize = company.companySize;
-            comp.companyType = company.companyType;
-            comp.email = company.email;
-            comp.fullName = company.fullName;
-            comp.identityId = company.identityId;
-            comp.Facebook = company.Facebook;
-            comp.Instagram = company.Instagram;
-            comp.Linkedin = company.Linkedin;
-            comp.Twitter = company.Twitter;
-            comp.DataRegistro = DateTime.UtcNow.AddHours(-3);
-            comp.CompanyGuid = Guid.NewGuid();
-            comp.IsGoldPlan = company.Plan.ToUpper() != "BASIC";
-            PlanType = (bool)comp.IsGoldPlan ? "Gold" : "Básico";
+                Company comp = new Company();
+                comp.companyName = company.companyName;
+                comp.companySize = company.companySize;
+                comp.companyType = company.companyType;
+                comp.email = company.email;
+                comp.fullName = company.fullName;
+                comp.identityId = company.identityId;
+                comp.Facebook = company.Facebook;
+                comp.Instagram = company.Instagram;
+                comp.Linkedin = company.Linkedin;
+                comp.Twitter = company.Twitter;
+                comp.DataRegistro = DateTime.UtcNow.AddHours(-3);
+                comp.CompanyGuid = Guid.NewGuid();
+                comp.IsGoldPlan = company.Plan.ToUpper() != "BASIC";
+                PlanType = (bool)comp.IsGoldPlan ? "Gold" : "Básico";
+
+                db.Company.Add(comp);
 
 
-            db.Company.Add(comp);
+                //Enviando Emails
+                sendEmailToClient(company); //Um para o cliente
+                sendPrivateEmail(company); // Um para nós
 
 
-          
-            db.SaveChanges();
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+            }
             //TODO: Salvar no banco de dados
             return "Ok - POST";
         }
